@@ -19,8 +19,14 @@ RUN apt-get update && \
         libxslt-dev\
         libc-client-dev\
         libkrb5-dev
-        
 
+#ajout de imagick
+RUN set -x \
+    && apk add --no-cache --virtual .phpize-deps $PHPIZE_DEPS imagemagick-dev libtool \
+    && pecl install imagick-3.4.1 \
+    && docker-php-ext-enable imagick \
+    && apk add --no-cache --virtual .imagick-runtime-deps imagemagick \
+    && apk del .phpize-deps
 
 # Install the PHP mcrypt extention
 RUN docker-php-ext-install mcrypt
