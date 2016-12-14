@@ -19,6 +19,7 @@ RUN apt-get update && \
         libxslt-dev\
         libc-client-dev\
         libkrb5-dev
+        mysql-client
 
 RUN echo "file_uploads = On\n" \
          "memory_limit = 500M\n" \
