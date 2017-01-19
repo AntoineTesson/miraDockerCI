@@ -1,8 +1,7 @@
-FROM php:7.0-fpm
+FROM php:7.1.0-fpm
 
 # Install "curl", "libmemcached-dev", "libpq-dev", "libjpeg-dev",
 # "libpng12-dev", "libfreetype6-dev", "libssl-dev", "libmcrypt-dev"
-
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
