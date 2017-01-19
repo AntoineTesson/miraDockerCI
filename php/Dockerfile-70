@@ -19,8 +19,10 @@ RUN apt-get update && \
         libxslt-dev\
         libc-client-dev\
         libkrb5-dev\
+        mysql-client\
+        libmysqlclient-dev
 
-RUN  apt-get install mysql-server mysql-client libmysqlclient-dev
+
 RUN echo "file_uploads = On\n" \
          "memory_limit = 500M\n" \
          "upload_max_filesize = 500M\n" \
