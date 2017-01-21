@@ -1,7 +1,6 @@
 FROM php:7.0-fpm
 
-# Install "curl", "libmemcached-dev", "libpq-dev", "libjpeg-dev",
-#         "libpng12-dev", "libfreetype6-dev", "libssl-dev", "libmcrypt-dev"
+ Install "curl", "libmemcached-dev", "libpq-dev", "libjpeg-dev","libpng12-dev", "libfreetype6-dev", "libssl-dev", "libmcrypt-dev"
  
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
@@ -32,8 +31,9 @@ RUN echo "file_uploads = On\n" \
          > /usr/local/etc/php/conf.d/uploads.ini
          
 # Install Xdebug
-RUN pecl install xdebug && docker-php-ext-enable xdebug
-COPY ./xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
+# Install PECL extensions
+RUN pecl install xdebug
+RUN docker-php-ext-enable xdebug
 
 # Install the PHP mcrypt extention
 RUN docker-php-ext-install mcrypt
