@@ -30,10 +30,7 @@ RUN echo "file_uploads = On\n" \
          "max_execution_time = 600\n" \
          > /usr/local/etc/php/conf.d/uploads.ini
          
-# Install Xdebug
-# Install PECL extensions
-RUN pecl install xdebug
-RUN docker-php-ext-enable xdebug
+
 
 # Install the PHP mcrypt extention
 RUN docker-php-ext-install mcrypt
@@ -64,3 +61,7 @@ RUN pecl install zip && docker-php-ext-enable zip
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/local/bin/composer
+
+# Install Xdebug
+RUN pecl install xdebug && docker-php-ext-enable xdebug
+COPY ./xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
