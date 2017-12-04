@@ -8,6 +8,7 @@ RUN apt-get update && \
         curl \
         zlib1g-dev\
         libmemcached-dev \
+        libzip-dev\
         libz-dev \
         libpq-dev \
         libjpeg-dev \
