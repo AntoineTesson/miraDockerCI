@@ -6,6 +6,7 @@ RUN apt-get update && \
     apt-get install -y \
         git \
         curl \
+        zlib1g-dev\
         libmemcached-dev \
         libz-dev \
         libpq-dev \
@@ -53,7 +54,7 @@ RUN docker-php-ext-configure gd \
 RUN docker-php-ext-install soap
 
 # Install ZIP
-#RUN pecl install zip && docker-php-ext-enable zip
+RUN pecl install zip && docker-php-ext-enable zip
 
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php
