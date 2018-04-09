@@ -22,6 +22,8 @@ RUN apt-get update && \
         
 # Install unzip
 RUN apt-get install -y unzip
+# Install unzip
+RUN apt-get install -y wget
 
 
 RUN echo "file_uploads = On\n" \
