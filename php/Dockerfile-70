@@ -18,7 +18,7 @@ RUN apt-get update && \
         libxslt-dev\
         libc-client-dev\
         libkrb5-dev\
-        mysql-client
+        mysql-client-5.7
         
 # Install unzip
 RUN apt-get install -y unzip
